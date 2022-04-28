@@ -28,7 +28,12 @@ public class MenuController
 	private Scene scene;
 	private Parent root;
 
-
+	public void initialize()
+	{
+  		cbxGeoForm.getItems().add("Circle");
+  		cbxGeoForm.getItems().add("Square");
+  		cbxGeoForm.getItems().add("Ellipse");
+	}
 
 	public void createShape(MouseEvent mouseEvent) throws IOException
 	{
