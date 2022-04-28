@@ -1,10 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.canvas.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<Pane fx:id="pnPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#onClick" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.poeta.oiward.MainWindowController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="600.0" minWidth="800.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.poeta.oiward.MainWindowController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" percentHeight="15.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
    <children>
-      <Canvas fx:id="cvCanvas" height="400.0" width="600.0" />
+      <GridPane fx:id="gdpMenu" style="-fx-border-color: black;">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints fx:id="menuRowOne" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints fx:id="menuRowTwo" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <HBox fx:id="hbxOptions" alignment="CENTER" spacing="20.0" GridPane.rowIndex="1">
+               <children>
+                  <ComboBox fx:id="cbxGeoForm" prefWidth="150.0" promptText="Select a shape" />
+                  <ColorPicker fx:id="cpForm" />
+                  <TextField fx:id="txtSize" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="214.0" />
+               </children>
+               <GridPane.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </GridPane.margin>
+            </HBox>
+            <HBox spacing="60.0">
+               <children>
+                  <Label text="Geometric Form">
+                     <font>
+                        <Font name="Arial" size="21.0" />
+                     </font>
+                  </Label>
+                  <Label text="Color">
+                     <font>
+                        <Font name="Arial" size="21.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblSize" text="Radius">
+                     <font>
+                        <Font name="Arial" size="21.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="60.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets left="125.0" right="10.0" top="30.0" />
+               </padding>
+            </HBox>
+         </children>
+      </GridPane>
+      <Pane fx:id="pnPane" onMouseClicked="#createShape" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+         <children>
+            <Group fx:id="gpShapes" />
+         </children>
+      </Pane>
    </children>
-</Pane>
+</GridPane>

@@ -14,13 +14,14 @@ public class MainApp extends Application
 	public void start(Stage stage) throws IOException
 	{
 		FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("mainWindow.fxml"));
-		Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+		Scene scene = new Scene(fxmlLoader.load());
 
 		Image icon = new Image(Objects.requireNonNull(getClass().getResourceAsStream("icon.png")));
 
 		stage.setTitle("Oiward App");
 		stage.getIcons().add(icon);
 		stage.setScene(scene);
+		stage.setResizable(false);
 		stage.show();
 	}
 
