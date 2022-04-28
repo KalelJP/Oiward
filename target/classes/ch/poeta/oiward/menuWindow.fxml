@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <Label text="Geometric Form">
+         <font>
+            <Font name="Arial" size="21.0" />
+         </font>
+      </Label>
+      <Label text="Color" GridPane.rowIndex="1">
+         <font>
+            <Font name="Arial" size="21.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblSize" text="Radius" GridPane.rowIndex="2">
+         <font>
+            <Font name="Arial" size="21.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="cbxGeoForm" prefWidth="150.0" GridPane.columnIndex="1" />
+      <ColorPicker fx:id="cpForm" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="214.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+   </children>
+   <padding>
+      <Insets left="10.0" />
+   </padding>
+</GridPane>

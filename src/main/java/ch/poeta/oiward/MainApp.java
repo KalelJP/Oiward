@@ -7,15 +7,16 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
-public class HelloApplication extends Application
+public class MainApp extends Application
 {
 	public void start(Stage stage) throws IOException
 	{
-		FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+		FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("mainWindow.fxml"));
 		Scene scene = new Scene(fxmlLoader.load(), 320, 240);
 
-		Image icon = new Image(getClass().getResourceAsStream("icon.png"));
+		Image icon = new Image(Objects.requireNonNull(getClass().getResourceAsStream("icon.png")));
 
 		stage.setTitle("Oiward App");
 		stage.getIcons().add(icon);
