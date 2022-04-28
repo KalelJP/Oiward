@@ -68,8 +68,8 @@ public class MainWindowController
 						gpShapes.getChildren().add(circle);
 						break;
 					case "Square":
-						Rectangle rect = new Rectangle(mouseEvent.getX(), mouseEvent.getY(), sldSize.getValue(),
-								sldSize.getValue());
+						Rectangle rect = new Rectangle(mouseEvent.getX() - (sldSize.getValue() / 2),
+								mouseEvent.getY() - (sldSize.getValue() / 2), sldSize.getValue(), sldSize.getValue());
 						rect.setFill(cpForm.getValue());
 						gpShapes.getChildren().add(rect);
 						break;
