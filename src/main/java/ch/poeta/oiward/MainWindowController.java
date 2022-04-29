@@ -37,9 +37,9 @@ public class MainWindowController
 		cbxGeoForm.getItems().add("Square");
 		cbxGeoForm.getItems().add("Rectangle");
 		cbxGeoForm.getItems().add("Ellipse");
+
 		disableSliders(true);
-
-
+		sldSize.setDisable(true);
 	}
 
 
