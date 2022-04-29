@@ -1,9 +1,10 @@
 package ch.poeta.oiward;
 
 import javafx.scene.Group;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.ColorPicker;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
@@ -11,8 +12,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.RowConstraints;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Rectangle;
-import javafx.stage.Stage;
 
 public class MainWindowController
 {
@@ -27,8 +28,6 @@ public class MainWindowController
 	public Slider sldSize;
 	public Slider sldLengthX;
 	public Slider sldLengthY;
-	private GeoForm geoForm;
-
 	public ComboBox<String> cbxGeoForm;
 	
 
@@ -39,6 +38,8 @@ public class MainWindowController
 		cbxGeoForm.getItems().add("Rectangle");
 		cbxGeoForm.getItems().add("Ellipse");
 		disableSliders(true);
+
+
 	}
 
 
@@ -64,9 +65,9 @@ public class MainWindowController
 		else{
 			try
 			{
-				switch (geoForm)
+				switch (cbxGeoForm.getValue())
 				{
-					case CIRCLE:
+					case "Circle":
 						disableSliders(true);
 
 						Circle circle = new Circle(mouseEvent.getX(), mouseEvent.getY(), sldSize.getValue(),
@@ -74,7 +75,7 @@ public class MainWindowController
 
 						gpShapes.getChildren().add(circle);
 						break;
-					case SQUARE:
+					case "Square":
 						disableSliders(true);
 
 						Rectangle square = new Rectangle(mouseEvent.getX() - (sldSize.getValue() / 2),
@@ -82,10 +83,14 @@ public class MainWindowController
 						square.setFill(cpForm.getValue());
 						gpShapes.getChildren().add(square);
 						break;
-					case ELLIPSE:
+					case "Ellipse":
 						disableSliders(false);
+						Ellipse ellipse = new Ellipse(mouseEvent.getX(), mouseEvent.getY(), sldLengthX.getValue(),
+								sldLengthY.getValue());
+						ellipse.setFill(cpForm.getValue());
+						gpShapes.getChildren().add(ellipse);
 						break;
-					case RECT:
+					case "Rectangle":
 						disableSliders(false);
 
 						Rectangle rect = new Rectangle(mouseEvent.getX() - (sldLengthX.getValue() / 2),
@@ -100,7 +105,7 @@ public class MainWindowController
 						break;
 				}
 			}
-			catch (Exception exception)
+			catch (Exception ignored)
 			{
 			}
 		}
@@ -121,10 +126,4 @@ public class MainWindowController
 			sldLengthY.setDisable(false);
 		}
 	}
-
-
-
-
-
-
 }
