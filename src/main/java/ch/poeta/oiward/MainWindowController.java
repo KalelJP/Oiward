@@ -27,9 +27,7 @@ public class MainWindowController
 	public Slider sldSize;
 	public Slider sldLengthX;
 	public Slider sldLengthY;
-	private Stage stage;
-	private Scene scene;
-	private Parent root;
+	private GeoForm geoForm;
 
 	public ComboBox<String> cbxGeoForm;
 	
@@ -40,7 +38,10 @@ public class MainWindowController
 		cbxGeoForm.getItems().add("Square");
 		cbxGeoForm.getItems().add("Rectangle");
 		cbxGeoForm.getItems().add("Ellipse");
+		disableSliders(true);
 	}
+
+
 
 	public void createShape(MouseEvent mouseEvent)
 	{
@@ -63,9 +64,9 @@ public class MainWindowController
 		else{
 			try
 			{
-				switch (cbxGeoForm.getValue())
+				switch (geoForm)
 				{
-					case "Circle":
+					case CIRCLE:
 						disableSliders(true);
 
 						Circle circle = new Circle(mouseEvent.getX(), mouseEvent.getY(), sldSize.getValue(),
@@ -73,7 +74,7 @@ public class MainWindowController
 
 						gpShapes.getChildren().add(circle);
 						break;
-					case "Square":
+					case SQUARE:
 						disableSliders(true);
 
 						Rectangle square = new Rectangle(mouseEvent.getX() - (sldSize.getValue() / 2),
@@ -81,10 +82,10 @@ public class MainWindowController
 						square.setFill(cpForm.getValue());
 						gpShapes.getChildren().add(square);
 						break;
-					case "Ellipse":
+					case ELLIPSE:
 						disableSliders(false);
 						break;
-					case "Rectangle":
+					case RECT:
 						disableSliders(false);
 
 						Rectangle rect = new Rectangle(mouseEvent.getX() - (sldLengthX.getValue() / 2),
