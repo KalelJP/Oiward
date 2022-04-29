@@ -63,7 +63,7 @@ public class MainWindowController
 		else{
 			try
 			{
-				switch (cbxGeoForm.getValue().toString())
+				switch (cbxGeoForm.getValue())
 				{
 					case "Circle":
 						disableSliders(true);
