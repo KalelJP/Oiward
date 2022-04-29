@@ -25,6 +25,8 @@ public class MainWindowController
 	public GridPane gdpMenu;
 	public HBox hbxOptions;
 	public Slider sldSize;
+	public Slider sldLengthX;
+	public Slider sldLengthY;
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
@@ -36,6 +38,7 @@ public class MainWindowController
 	{
 		cbxGeoForm.getItems().add("Circle");
 		cbxGeoForm.getItems().add("Square");
+		cbxGeoForm.getItems().add("Rectangle");
 		cbxGeoForm.getItems().add("Ellipse");
 	}
 
@@ -63,19 +66,35 @@ public class MainWindowController
 				switch (cbxGeoForm.getValue().toString())
 				{
 					case "Circle":
+						disableSliders(true);
+
 						Circle circle = new Circle(mouseEvent.getX(), mouseEvent.getY(), sldSize.getValue(),
 								cpForm.getValue());
+
 						gpShapes.getChildren().add(circle);
 						break;
 					case "Square":
-						Rectangle rect = new Rectangle(mouseEvent.getX() - (sldSize.getValue() / 2),
+						disableSliders(true);
+
+						Rectangle square = new Rectangle(mouseEvent.getX() - (sldSize.getValue() / 2),
 								mouseEvent.getY() - (sldSize.getValue() / 2), sldSize.getValue(), sldSize.getValue());
-						rect.setFill(cpForm.getValue());
-						gpShapes.getChildren().add(rect);
+						square.setFill(cpForm.getValue());
+						gpShapes.getChildren().add(square);
 						break;
 					case "Ellipse":
-						//shape = new Ellipse();
+						disableSliders(false);
 						break;
+					case "Rectangle":
+						disableSliders(false);
+
+						Rectangle rect = new Rectangle(mouseEvent.getX() - (sldLengthX.getValue() / 2),
+								mouseEvent.getY() - (sldLengthY.getValue() / 2), sldLengthX.getValue(),
+								sldLengthY.getValue());
+						rect.setFill(cpForm.getValue());
+						gpShapes.getChildren().add(rect);
+
+						break;
+
 					default:
 						break;
 				}
@@ -83,6 +102,22 @@ public class MainWindowController
 			catch (Exception exception)
 			{
 			}
+		}
+	}
+
+	public void disableSliders(boolean needsOneParameter)
+	{
+		if (needsOneParameter)
+		{
+			sldSize.setDisable(false);
+			sldLengthX.setDisable(true);
+			sldLengthY.setDisable(true);
+		}
+		else
+		{
+			sldSize.setDisable(true);
+			sldLengthX.setDisable(false);
+			sldLengthY.setDisable(false);
 		}
 	}
 
