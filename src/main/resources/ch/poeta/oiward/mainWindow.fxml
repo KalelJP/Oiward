@@ -36,8 +36,8 @@
                   <ComboBox fx:id="cbxGeoForm" prefWidth="150.0" promptText="Select a shape" />
                   <ColorPicker fx:id="cpForm" />
                   <Slider fx:id="sldSize" />
-                  <Slider fx:id="sldLengthX" />
-                  <Slider fx:id="sldLengthY" />
+                  <Slider fx:id="sldLengthX" max="500.0" />
+                  <Slider fx:id="sldLengthY" max="500.0" />
                </children>
                <GridPane.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
