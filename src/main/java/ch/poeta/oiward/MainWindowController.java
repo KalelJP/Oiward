@@ -29,7 +29,7 @@ public class MainWindowController
 	private Scene scene;
 	private Parent root;
 
-	public ComboBox cbxGeoForm;
+	public ComboBox<String> cbxGeoForm;
 	
 
 	public void initialize()
